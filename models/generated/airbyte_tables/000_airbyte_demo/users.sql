@@ -34,7 +34,7 @@ select
     full_name,
     job_title,
     last_name,
-    first_name,
+    first_name_2,
     onboarding_completion,
     _airbyte_ab_id,
     _airbyte_emitted_at,

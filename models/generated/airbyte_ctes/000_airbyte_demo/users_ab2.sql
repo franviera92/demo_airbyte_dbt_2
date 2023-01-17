@@ -18,7 +18,7 @@ select
     cast(full_name as {{ dbt_utils.type_string() }}) as full_name,
     cast(job_title as {{ dbt_utils.type_string() }}) as job_title,
     cast(last_name as {{ dbt_utils.type_string() }}) as last_name,
-    cast(first_name as {{ dbt_utils.type_string() }}) as first_name,
+    cast(first_name as {{ dbt_utils.type_string() }}) as first_name_2,
     cast(onboarding_completion as {{ dbt_utils.type_bigint() }}) as onboarding_completion,
     _airbyte_ab_id,
     _airbyte_emitted_at,

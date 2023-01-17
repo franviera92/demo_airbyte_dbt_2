@@ -19,7 +19,7 @@ select
         'full_name',
         'job_title',
         'last_name',
-        'first_name',
+        'first_name_2',
         'onboarding_completion',
     ]) }} as _airbyte_users_hashid,
     tmp.*
