@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: users
+    description: One record per users
+    columns:
+      - name: first_name
+        policy_tags:
+          #- 'projects/df-central-command-dev/locations/us/taxonomies/3031817948438103290/policyTags/3834293735541275033'
+          - '{{ var("policy_tag_ids")["high"] }}'
+        description: modify claudio

@@ -1,0 +1,14 @@
+version: 2
+sources:
+- name: 000_airbyte_demo
+  quoting:
+    database: true
+    schema: false
+    identifier: false
+  tables:
+  - name: _airbyte_raw_appartments
+  - name: _airbyte_raw_bookings
+  - name: _airbyte_raw_company
+  - name: _airbyte_raw_config_item
+  - name: _airbyte_raw_property_history
+  - name: _airbyte_raw_users

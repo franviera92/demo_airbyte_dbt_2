@@ -1,0 +1,77 @@
+name: airbyte_utils
+version: '1.0'
+config-version: 2
+profile: normalize
+model-paths:
+- models
+docs-paths:
+- docs
+analysis-paths:
+- analysis
+test-paths:
+- tests
+seed-paths:
+- data
+macro-paths:
+- macros
+target-path: ../build
+log-path: ../logs
+packages-install-path: ../dbt
+clean-targets:
+- build
+- dbt_modules
+quoting:
+  database: true
+  schema: false
+  identifier: true
+models:
+  airbyte_utils:
+    +materialized: table
+    generated:
+      airbyte_ctes:
+        +tags: airbyte_internal_cte
+        +materialized: ephemeral
+      airbyte_incremental:
+        +tags: incremental_tables
+        +materialized: incremental
+        +on_schema_change: sync_all_columns
+      airbyte_tables:
+        +tags: normalized_tables
+        +materialized: table
+      airbyte_views:
+        +tags: airbyte_internal_views
+        +materialized: view
+dispatch:
+- macro_namespace: dbt_utils
+  search_order:
+  - airbyte_utils
+  - dbt_utils
+vars:
+  json_column: _airbyte_data
+  models_to_source:
+    config_item_ab1: 000_airbyte_demo._airbyte_raw_config_item
+    config_item_ab2: 000_airbyte_demo._airbyte_raw_config_item
+    config_item_ab3: 000_airbyte_demo._airbyte_raw_config_item
+    config_item: 000_airbyte_demo._airbyte_raw_config_item
+    appartments_ab1: 000_airbyte_demo._airbyte_raw_appartments
+    appartments_ab2: 000_airbyte_demo._airbyte_raw_appartments
+    appartments_ab3: 000_airbyte_demo._airbyte_raw_appartments
+    appartments: 000_airbyte_demo._airbyte_raw_appartments
+    bookings_ab1: 000_airbyte_demo._airbyte_raw_bookings
+    bookings_ab2: 000_airbyte_demo._airbyte_raw_bookings
+    bookings_ab3: 000_airbyte_demo._airbyte_raw_bookings
+    bookings: 000_airbyte_demo._airbyte_raw_bookings
+    users_ab1: 000_airbyte_demo._airbyte_raw_users
+    users_ab2: 000_airbyte_demo._airbyte_raw_users
+    users_ab3: 000_airbyte_demo._airbyte_raw_users
+    users: 000_airbyte_demo._airbyte_raw_users
+    property_history_ab1: 000_airbyte_demo._airbyte_raw_property_history
+    property_history_ab2: 000_airbyte_demo._airbyte_raw_property_history
+    property_history_ab3: 000_airbyte_demo._airbyte_raw_property_history
+    property_history: 000_airbyte_demo._airbyte_raw_property_history
+    company_ab1: 000_airbyte_demo._airbyte_raw_company
+    company_ab2: 000_airbyte_demo._airbyte_raw_company
+    company_ab3: 000_airbyte_demo._airbyte_raw_company
+    company: 000_airbyte_demo._airbyte_raw_company
+  policy_tag_ids:
+    high: 'projects/df-central-command-dev/locations/us/taxonomies/3031817948438103290/policyTags/3834293735541275033'
